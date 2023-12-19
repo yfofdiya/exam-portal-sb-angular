@@ -1,0 +1,42 @@
+<h1 class="text-center mt20"><strong>Questions of {{ title }}</strong></h1>
+
+<div class="bootstrap-wrapper">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="container text-center">
+                <button mat-raised-button color="accent" [routerLink]="'/admin-dashboard/add-question/' + qid + '/' + title">Add</button>
+            </div>
+            <mat-card *ngFor="let q of questions; let i = index" class="mt20">
+                <mat-card-content>
+                    <p>
+                        Q - {{ i +1 }} <span class="ml10" [innerHTML]="q.content"></span>
+                    </p>
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <p>a. {{ q.option1 }}</p>
+                            </div>
+                            <div class="col-md-6">
+                                <p>b. {{ q.option2 }}</p>
+                            </div>
+                            <div class="col-md-6">
+                                <p>c. {{ q.option3 }}</p>
+                            </div>
+                            <div class="col-md-6">
+                                <p>d. {{ q.option4 }}</p>
+                            </div>
+                        </div>
+                        <mat-divider></mat-divider>
+                        <p class="mt10"><b>Correct Answer:</b> {{ q.answer }}</p>
+                    </div>
+                </mat-card-content>
+                <mat-card-actions>
+                    <div class="container text-center">
+                        <button mat-raised-button color="accent" [routerLink]="'/admin-dashboard/update-question/' + q.quesId + '/' + title ">Update</button>
+                        <button mat-raised-button color="accent" class="ml20" (click)="deleteQuestion(q.quesId)">Delete</button>
+                    </div>
+                </mat-card-actions>
+            </mat-card>
+        </div>
+    </div>
+</div>

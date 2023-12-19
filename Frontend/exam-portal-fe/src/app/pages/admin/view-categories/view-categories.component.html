@@ -1,0 +1,41 @@
+<!-- <mat-card>
+    <mat-list>
+        <div mat-subheader class="text-center">
+            <h1><strong>All Categories</strong></h1>
+        </div>
+        <mat-list-item *ngFor="let cat of categories">
+            <mat-icon matListItemIcon>category</mat-icon>
+            <table style="border: 0.2px solid black; width: 100%;">
+                <div><strong>{{cat.title}}</strong></div>
+                <div>{{cat.description}}</div>
+            </table>
+        </mat-list-item>
+    </mat-list>
+    <div class="container text-center mt20 mb20">
+        <button [routerLink]="'/admin-dashboard/add-category'" mat-raised-button color="accent">Add New
+            Category</button>
+    </div>
+</mat-card> -->
+
+<div mat-subheader class="text-center">
+    <h1><strong>All Categories</strong></h1>
+</div>
+<mat-card class="mt20 mr20 ml20" *ngFor="let cat of categories">
+    <div class="rows">
+        <div class="col-md-6">
+            <mat-card-header>
+                <div mat-card-avatar class="example-header-image"></div>
+                <mat-card-title>{{ cat.title }}</mat-card-title>
+                <mat-card-subtitle>{{ cat.description }}</mat-card-subtitle>
+            </mat-card-header>
+        </div>
+        <div class="text-center mb20">
+            <button [routerLink]="'/admin-dashboard/update-category/' + cat.cid" mat-raised-button color="accent">Update</button>
+            <button mat-raised-button color="accent" class="ml20" (click)="deleteCategory(cat.cid)">Delete</button>
+        </div>
+    </div>
+</mat-card>
+<div class="container text-center mt20 mb20">
+    <button [routerLink]="'/admin-dashboard/add-category'" mat-raised-button color="accent">Add New
+        Category</button>
+</div>

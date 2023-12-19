@@ -1,0 +1,45 @@
+<div class="bootstrap-wrapper">
+    <div class="container mt10 mb10">
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <mat-card>
+                    <div class="container text-center">
+                        <img src="../../../assets/login.png" alt="" class="all-img" />
+                    </div>
+                    <h1 class="text-center">Login here</h1>
+                    <form (ngSubmit)="login()" class="ml20 mr20">
+
+                        <mat-form-field class="full-width" appearance="outline">
+                            <mat-label>Username</mat-label>
+                            <input type="text" 
+                            [(ngModel)]="loginData.userName"
+                            name="userName" 
+                            matInput 
+                            placeholder="Enter Username">
+                            <mat-hint>Enter a valid username</mat-hint>
+                        </mat-form-field>
+
+                        <mat-form-field class="full-width" appearance="outline">
+                            <mat-label>Password</mat-label>
+                            <input type="password"
+                            [(ngModel)]="loginData.password"
+                            name="password" 
+                            matInput 
+                            placeholder="Enter Password">
+                        </mat-form-field>
+
+                        <div class="container text-center mb20">
+                            <button type="submit" mat-raised-button color="accent">Login</button>
+                            <button class="ml10" type="reset" mat-raised-button color="accent">Reset</button>
+                        </div>
+
+                        <div class="container text-center mb20">
+                            <a href="/signup">Don't have account?</a>
+                        </div>
+
+                    </form>
+                </mat-card>
+            </div>
+        </div>
+    </div>
+</div>

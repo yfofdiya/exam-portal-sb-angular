@@ -1,0 +1,23 @@
+<mat-card class="mt20 mr20 ml20" *ngFor="let q of quizzes">
+    <mat-card-header>
+        <div mat-card-avatar class="example-header-image"></div>
+        <mat-card-title>{{ q.title }}</mat-card-title>
+        <mat-card-subtitle>{{ q.description }}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+        <p><strong>Category:</strong> {{ q.category.title }}</p>
+        <p *ngIf="q.active">Quiz is <strong>Active</strong></p>
+        <p *ngIf="!q.active">Quiz is <strong>Inactive</strong>, Need to make active</p>
+    </mat-card-content>
+    <mat-card-actions>
+        <button mat-raised-button color="accent" [routerLink]="'/admin-dashboard/view-questions/' + q.qid + '/' + q.title">All Questions</button>
+        <button mat-stroked-button color="accent" class="ml20">No. of Questions: {{ q.numberOfQuestions }}</button>
+        <button mat-stroked-button color="accent" class="ml20">Max Marks: {{ q.maxMarks }}</button>
+        <button [routerLink]="'/admin-dashboard/all-attempts'" mat-raised-button color="accent" class="ml20">Attempts</button>
+        <button [routerLink]="'/admin-dashboard/update-quiz/' + q.qid" mat-raised-button color="accent" class="ml20">Update Quiz</button>
+        <button mat-raised-button color="accent" class="ml20" (click)="deleteQuiz(q.qid)">Delete Quiz</button>
+    </mat-card-actions>
+</mat-card>
+<div class="container mt20 text-center">
+    <button [routerLink]="'/admin-dashboard/add-quiz'" mat-raised-button color="accent" class="mb20">Add New Quiz</button>
+</div>

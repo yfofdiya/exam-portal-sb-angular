@@ -1,0 +1,22 @@
+<mat-toolbar color="accent">
+    <a routerLink="/" mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon" title="Home">
+      <mat-icon>home</mat-icon>
+    </a>
+    <span>Exam Portal</span>
+    <span class="example-spacer"></span>
+    <a *ngIf="!_loginService.isLoggedIn()" [routerLink]="'/login'" mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with login icon" title="Login">
+      <mat-icon>login</mat-icon>
+    </a>
+    <a *ngIf="!_loginService.isLoggedIn()" [routerLink]="'/signup'" mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with signup icon" title="Register">
+      <mat-icon>how_to_reg</mat-icon>
+    </a>
+    <a *ngIf="_loginService.isLoggedIn() && role == 'ADMIN'" [routerLink]="'/admin-dashboard/profile'" mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with Person icon" title="My Profile">
+      <mat-icon>person</mat-icon>
+    </a>
+    <a *ngIf="_loginService.isLoggedIn() && role == 'NORMAL'" [routerLink]="'/user-dashboard/profile'" mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with Person icon" title="My Profile">
+      <mat-icon>person</mat-icon>
+    </a>
+    <a *ngIf="_loginService.isLoggedIn()" (click)="logout()" mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with logout icon" title="Logout">
+      <mat-icon>logout</mat-icon>
+    </a>
+  </mat-toolbar>

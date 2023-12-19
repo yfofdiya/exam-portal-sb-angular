@@ -1,0 +1,88 @@
+<div class="bootstrap-wrapper">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <mat-card *ngIf="quiz" class="mt20">
+                    <mat-card-header class="text-center">
+                        <mat-card-title>
+                            <p>
+                                Read Instructions Carefully!
+                            </p>
+                        </mat-card-title>
+                    </mat-card-header>
+                    <mat-card-content class="mt20">
+
+                        <h1>Quiz on {{ quiz.title }}</h1>
+
+                        <p>{{ quiz.description }}</p>
+
+                        <mat-divider></mat-divider>
+
+                        <h1 class="mt10">Importan Instructions</h1>
+
+                        <ul>
+                            <li>
+                                Time for this quiz is <b>{{ quiz.numberOfQuestions }}</b> minutes.
+                            </li>
+                            <li>
+                                Don't worry, Quiz will <b>automatically</b> submitted once timer is over.
+                            </li>
+                            <li>
+                                Total number of questions are <b>{{ quiz.numberOfQuestions }}.</b>
+                            </li>
+                            <li>
+                                Total marks you can obtain is <b>{{ quiz.maxMarks }}.</b>
+                            </li>
+                            <li>
+                                Each question is of <b>{{ quiz.maxMarks / quiz.numberOfQuestions }} marks.</b>
+                            </li>
+                            <li>
+                               No negative mark for wrong question.
+                            </li>
+                            <li>
+                               All questions are of MCQs based.
+                             </li>
+                        </ul>
+
+                        <mat-divider></mat-divider>
+
+                        <h1 class="mt10">Attempting Quiz Instructions</h1>
+
+                        <ul>
+                            <li>
+                                Click <b>Start Quiz</b> button to start the quiz.
+                            </li>
+                            <li>
+                                Timer will start at the moment you click start quiz button.
+                            </li>
+                            <li>
+                                You cannot resume your quiz, If interrupted due to any reason.
+                            </li>
+                            <li>
+                                Click on next button to move new question.
+                            </li>
+                            <li>
+                                On completion of the quiz, CLick on Submit button.
+                            </li>
+                            <li>
+                                Report will be generated in the PDF format.
+                            </li>
+                        </ul>
+
+                        <div class="container text-center">
+                            <h1>All the best!</h1>
+                        </div>
+
+                    </mat-card-content>
+                    <mat-card-actions>
+
+                        <div class="container text-center">
+                            <button mat-raised-button color="accent" (click)="startQuiz()">Start Quiz</button>
+                        </div>
+
+                    </mat-card-actions>
+                </mat-card>
+            </div>
+        </div>
+    </div>
+</div>
